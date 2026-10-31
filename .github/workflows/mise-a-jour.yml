@@ -1,0 +1,34 @@
+# Reprend la formule jointe à la dernière release de Bonk, et la publie si elle a changé. Toutes les heures.
+name: mise-a-jour
+
+on:
+  schedule:
+    - cron: "47 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: mise-a-jour
+  cancel-in-progress: false
+
+jobs:
+  formule:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Reprendre la formule
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release download --repo FantasmaGlad/Bonk --pattern bonk.rb --dir Formula --clobber
+          if git status --porcelain | grep -q .; then
+            version=$(sed -n 's/^  version "\(.*\)"/\1/p' Formula/bonk.rb)
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add Formula/bonk.rb
+            git commit -m "feat(formule): passer en $version"
+            git push
+          fi
