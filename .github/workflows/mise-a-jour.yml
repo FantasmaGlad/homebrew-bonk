@@ -1,4 +1,5 @@
-# Reprend la formule jointe à la dernière release de Bonk, et la publie si elle a changé. Toutes les heures.
+# Reprend la formule jointe à la dernière release de Bonk, écrit celle de bonk-cli, et les publie si elles ont
+# changé. Toutes les heures. Les deux sont alors installées sur un vrai macOS.
 name: mise-a-jour
 
 on:
@@ -17,18 +18,40 @@ jobs:
   formule:
     runs-on: ubuntu-24.04
     timeout-minutes: 5
+    outputs:
+      change: ${{ steps.reprendre.outputs.change }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: Reprendre la formule
+        id: reprendre
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           gh release download --repo FantasmaGlad/Bonk --pattern bonk.rb --dir Formula --clobber
+          gh release download --repo FantasmaGlad/Bonk --pattern SHA256SUMS --dir "$RUNNER_TEMP" --clobber
+          python3 scripts/formule-cli.py "$RUNNER_TEMP/SHA256SUMS" "$(sed -n 's/^  version "\(.*\)"/\1/p' Formula/bonk.rb)" > Formula/bonk-cli.rb
           if git status --porcelain | grep -q .; then
             version=$(sed -n 's/^  version "\(.*\)"/\1/p' Formula/bonk.rb)
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add Formula/bonk.rb
+            git add Formula
             git commit -m "feat(formule): passer en $version"
             git push
+            echo "change=true" >> "$GITHUB_OUTPUT"
           fi
+
+  essai:
+    needs: formule
+    if: needs.formule.outputs.change == 'true' || github.event_name == 'workflow_dispatch'
+    runs-on: macos-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    steps:
+      - name: Installer les deux formules
+        run: |
+          brew install fantasmaglad/bonk/bonk
+          bonk --version
+          brew uninstall bonk
+          brew install fantasmaglad/bonk/bonk-cli
+          bonk --version
