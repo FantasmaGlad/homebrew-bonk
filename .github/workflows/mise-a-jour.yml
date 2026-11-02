@@ -1,5 +1,6 @@
-# Reprend la formule jointe à la dernière release de Bonk, écrit celle de bonk-cli, et les publie si elles ont
-# changé. Toutes les heures. Les deux sont alors installées sur un vrai macOS.
+# Reprend la formule jointe à la dernière release de Bonk et écrit celle de bonk-cli. Toutes les heures. Si elles
+# ont changé, les deux sont d'abord installées sur un vrai macOS depuis un tap local, et publiées seulement ensuite :
+# une formule cassée n'atteint jamais le tap.
 name: mise-a-jour
 
 on:
@@ -8,7 +9,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 concurrency:
   group: mise-a-jour
@@ -20,8 +21,11 @@ jobs:
     timeout-minutes: 5
     outputs:
       change: ${{ steps.reprendre.outputs.change }}
+      version: ${{ steps.reprendre.outputs.version }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
       - name: Reprendre la formule
         id: reprendre
         env:
@@ -29,29 +33,57 @@ jobs:
         run: |
           gh release download --repo FantasmaGlad/Bonk --pattern bonk.rb --dir Formula --clobber
           gh release download --repo FantasmaGlad/Bonk --pattern SHA256SUMS --dir "$RUNNER_TEMP" --clobber
-          python3 scripts/formule-cli.py "$RUNNER_TEMP/SHA256SUMS" "$(sed -n 's/^  version "\(.*\)"/\1/p' Formula/bonk.rb)" > Formula/bonk-cli.rb
-          if git status --porcelain | grep -q .; then
-            version=$(sed -n 's/^  version "\(.*\)"/\1/p' Formula/bonk.rb)
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add Formula
-            git commit -m "feat(formule): passer en $version"
-            git push
-            echo "change=true" >> "$GITHUB_OUTPUT"
-          fi
+          version=$(sed -n 's/^  version "\(.*\)"/\1/p' Formula/bonk.rb)
+          python3 scripts/formule-cli.py "$RUNNER_TEMP/SHA256SUMS" "$version" > Formula/bonk-cli.rb
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+          if git status --porcelain | grep -q .; then echo "change=true" >> "$GITHUB_OUTPUT"; fi
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: formules
+          path: Formula/
+          retention-days: 1
 
   essai:
     needs: formule
     if: needs.formule.outputs.change == 'true' || github.event_name == 'workflow_dispatch'
     runs-on: macos-latest
     timeout-minutes: 15
-    permissions:
-      contents: read
     steps:
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: formules
+          path: formules
+      # Homebrew n'installe une formule que depuis un tap : un tap local reçoit celles qui vont être publiées.
       - name: Installer les deux formules
         run: |
-          brew install fantasmaglad/bonk/bonk
+          brew tap-new --no-git essai/bonk
+          cp formules/*.rb "$(brew --repository essai/bonk)/Formula/"
+          brew install essai/bonk/bonk
           bonk --version
           brew uninstall bonk
-          brew install fantasmaglad/bonk/bonk-cli
+          brew install essai/bonk/bonk-cli
           bonk --version
+
+  publication:
+    needs: [formule, essai]
+    if: needs.formule.outputs.change == 'true'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    steps:
+      # Le jeton reste dans le dépôt cloné : ce job pousse, et ne fait rien d'autre.
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: formules
+          path: Formula
+      - name: Publier
+        env:
+          VERSION: ${{ needs.formule.outputs.version }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add Formula
+          git commit -m "feat(formule): passer en $VERSION"
+          git push
