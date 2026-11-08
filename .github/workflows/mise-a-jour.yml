@@ -1,6 +1,3 @@
-# Reprend la formule jointe à la dernière release de Bonk et écrit celle de bonk-cli. Toutes les heures. Si elles
-# ont changé, les deux sont d'abord installées sur un vrai macOS depuis un tap local, et publiées seulement ensuite :
-# une formule cassée n'atteint jamais le tap.
 name: mise-a-jour
 
 on:
