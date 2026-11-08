@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/FantasmaGlad/Bonk/main/docs/icons/homebrew.svg" width="96" height="96" alt="Homebrew">
+  <img src="docs/icons/homebrew.svg" width="96" height="96" alt="Homebrew">
 </p>
 
 <h1 align="center">homebrew-bonk</h1>
@@ -23,8 +23,8 @@
 
 | Formula | Command | Requirements |
 | :--- | :--- | :--- |
-| <img src="https://raw.githubusercontent.com/FantasmaGlad/Bonk/main/crates/bonk/assets/icons/128x128/bonk.png" width="20" height="20" valign="middle" alt=""> **bonk** | `brew install fantasmaglad/bonk/bonk` | macOS 12+, Linux |
-| <img src="https://raw.githubusercontent.com/FantasmaGlad/Bonk/main/crates/bonk/assets/icons/128x128/bonk.png" width="20" height="20" valign="middle" alt=""> **bonk-cli** | `brew install fantasmaglad/bonk/bonk-cli` | macOS 12+, Linux |
+| <img src="docs/icons/bonk.png" width="20" height="20" valign="middle" alt=""> **bonk** | `brew install fantasmaglad/bonk/bonk` | macOS 12+, Linux |
+| <img src="docs/icons/bonk.png" width="20" height="20" valign="middle" alt=""> **bonk-cli** | `brew install fantasmaglad/bonk/bonk-cli` | macOS 12+, Linux |
 
 `bonk-cli` is the version without a window. Each formula follows the latest Bonk release.
 
