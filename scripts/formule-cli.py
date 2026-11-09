@@ -1,8 +1,5 @@
 #!/usr/bin/env python3
-"""Écrit la formule de bonk-cli d'après le fichier SHA256SUMS d'une release.
-
-Usage : formule-cli.py <SHA256SUMS> <version>
-"""
+"""Usage: formule-cli.py <SHA256SUMS> <version>"""
 import re
 import sys
 from pathlib import Path
@@ -17,7 +14,7 @@ for ligne in chemin.read_text(encoding="utf-8").splitlines():
 
 
 def bloc(*noms: str) -> str:
-    # Jusqu'à la 0.0.3, l'archive Linux sans fenêtre s'appelait bonk-<version>-linux-<arch>-musl.
+    # Up to 0.0.3 the windowless Linux archive was named bonk-<version>-linux-<arch>-musl.
     nom = next(n for n in noms if n in empreintes)
     return f'      url "{BASE}/{nom}"\n      sha256 "{empreintes[nom]}"\n'
 
