@@ -60,6 +60,9 @@ jobs:
           brew uninstall bonk
           brew install essai/bonk/bonk-cli
           bonk --version
+          brew uninstall bonk-cli
+          brew install essai/bonk/bonk
+          bonk --version
 
   publication:
     needs: [formule, essai]
