@@ -29,6 +29,15 @@
 
 `bonk-cli` is the version without a window. Each formula follows the latest Bonk release.
 
+Both formulas install the `bonk` command and cannot be installed together:
+
+```bash
+brew uninstall bonk
+brew install fantasmaglad/bonk/bonk-cli
+```
+
+To go back, uninstall `bonk-cli`, then install `bonk`.
+
 ---
 
 License: view-only, all rights reserved ([LICENSE](LICENSE)) · Security: [SECURITY.md](SECURITY.md) · Contributing: [CONTRIBUTING.md](CONTRIBUTING.md)
