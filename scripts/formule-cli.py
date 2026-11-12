@@ -32,6 +32,7 @@ print(f'''class BonkCli < Formula
   conflicts_with "bonk", because: "both install the bonk command"
 
   on_macos do
+    depends_on macos: :monterey
     on_arm do
 {bloc(f"bonk-cli-{version}-macos-aarch64.tar.gz")}    end
     on_intel do
