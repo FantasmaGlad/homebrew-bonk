@@ -7,6 +7,7 @@ class BonkCli < Formula
   conflicts_with "bonk", because: "both install the bonk command"
 
   on_macos do
+    depends_on macos: :monterey
     on_arm do
       url "https://github.com/FantasmaGlad/Bonk/releases/download/v0.0.5/bonk-cli-0.0.5-macos-aarch64.tar.gz"
       sha256 "3441cf2afdbfc5108151602ce927f1f7d3f3c5ae7834ebc08191853db2780389"

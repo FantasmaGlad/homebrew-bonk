@@ -5,6 +5,7 @@ class Bonk < Formula
   license "MIT"
 
   on_macos do
+    depends_on macos: :monterey
     on_arm do
       url "https://github.com/FantasmaGlad/Bonk/releases/download/v0.0.5/bonk-0.0.5-macos-aarch64.tar.gz"
       sha256 "4833787a3209eaf8c5123a72a3001b96b3e843b949c273a4f791823addf846ee"
