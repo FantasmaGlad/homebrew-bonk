@@ -12,6 +12,10 @@ concurrency:
   group: mise-a-jour
   cancel-in-progress: false
 
+defaults:
+  run:
+    shell: bash
+
 jobs:
   formule:
     runs-on: ubuntu-24.04
