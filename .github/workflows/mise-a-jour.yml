@@ -37,7 +37,7 @@ jobs:
           version=$(sed -n 's/^  version "\(.*\)"/\1/p' Formula/bonk.rb)
           python3 scripts/formule-cli.py "$RUNNER_TEMP/SHA256SUMS" "$version" > Formula/bonk-cli.rb
           echo "version=$version" >> "$GITHUB_OUTPUT"
-          if git status --porcelain | grep -q .; then echo "change=true" >> "$GITHUB_OUTPUT"; fi
+          if [ -n "$(git status --porcelain)" ]; then echo "change=true" >> "$GITHUB_OUTPUT"; fi
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: formules
