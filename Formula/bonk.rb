@@ -1,7 +1,7 @@
 class Bonk < Formula
   desc "Bootable media writer for USB drives and external disks, with a graphical and a command-line interface."
   homepage "https://github.com/FantasmaGlad/Bonk"
-  version "0.0.6"
+  version "0.0.7"
   license "MIT"
 
   conflicts_with "bonk-cli", because: "both install the bonk command"
@@ -9,23 +9,23 @@ class Bonk < Formula
   on_macos do
     depends_on macos: :monterey
     on_arm do
-      url "https://github.com/FantasmaGlad/Bonk/releases/download/v0.0.6/bonk-0.0.6-macos-aarch64.tar.gz"
-      sha256 "75178534cb29c36e801efbd47555f995c4cf13787ea0408cf25a667265bcb04d"
+      url "https://github.com/FantasmaGlad/Bonk/releases/download/v0.0.7/bonk-0.0.7-macos-aarch64.tar.gz"
+      sha256 "c4290155bd8f8804a1ca057739c605e7dd92bbdad4671f4023e4081a18602a6f"
     end
     on_intel do
-      url "https://github.com/FantasmaGlad/Bonk/releases/download/v0.0.6/bonk-0.0.6-macos-x86_64.tar.gz"
-      sha256 "18f21a22feea39fe502cb9472e832dbb322a95752611a10fc5620f838e073c1c"
+      url "https://github.com/FantasmaGlad/Bonk/releases/download/v0.0.7/bonk-0.0.7-macos-x86_64.tar.gz"
+      sha256 "7b0550b2e0394dd9f08895f198e8ab663f84ce0ce9f6ae5fb3226bd673b1bcc8"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/FantasmaGlad/Bonk/releases/download/v0.0.6/bonk-0.0.6-linux-aarch64.tar.gz"
-      sha256 "4ca9b0f38a03c01a5b29e555f34719d4cb8b2534eb116913e4dc855606adade7"
+      url "https://github.com/FantasmaGlad/Bonk/releases/download/v0.0.7/bonk-0.0.7-linux-aarch64.tar.gz"
+      sha256 "8441340cea92518c85179e870c8da3da35f78be209322c229bcd781c755a6ddc"
     end
     on_intel do
-      url "https://github.com/FantasmaGlad/Bonk/releases/download/v0.0.6/bonk-0.0.6-linux-x86_64.tar.gz"
-      sha256 "2daa48e292ac500d339779851f7305bfad82f52da50de91e0bd57c2790869b2b"
+      url "https://github.com/FantasmaGlad/Bonk/releases/download/v0.0.7/bonk-0.0.7-linux-x86_64.tar.gz"
+      sha256 "f9cb1ba34f9b5706f8e68541354c15baef3706bd5c41df0ba394d06786051d20"
     end
   end
 
