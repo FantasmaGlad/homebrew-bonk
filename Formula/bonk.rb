@@ -1,7 +1,7 @@
 class Bonk < Formula
-  desc "Bootable media writer for USB drives and external disks, with a graphical and a command-line interface."
-  homepage "https://github.com/FantasmaGlad/Bonk"
-  version "0.0.7"
+  desc "Bootable media writer for USB drives and external disks"
+  homepage "https://bonk-os.app"
+  version "0.0.8"
   license "MIT"
 
   conflicts_with "bonk-cli", because: "both install the bonk command"
@@ -9,23 +9,23 @@ class Bonk < Formula
   on_macos do
     depends_on macos: :monterey
     on_arm do
-      url "https://github.com/FantasmaGlad/Bonk/releases/download/v0.0.7/bonk-0.0.7-macos-aarch64.tar.gz"
-      sha256 "c4290155bd8f8804a1ca057739c605e7dd92bbdad4671f4023e4081a18602a6f"
+      url "https://github.com/FantasmaGlad/Bonk/releases/download/v0.0.8/bonk-0.0.8-macos-aarch64.tar.gz"
+      sha256 "c4c1432529cf1f393f15ccef4fd7466ad6ccefb05341c4403258f6d28aede999"
     end
     on_intel do
-      url "https://github.com/FantasmaGlad/Bonk/releases/download/v0.0.7/bonk-0.0.7-macos-x86_64.tar.gz"
-      sha256 "7b0550b2e0394dd9f08895f198e8ab663f84ce0ce9f6ae5fb3226bd673b1bcc8"
+      url "https://github.com/FantasmaGlad/Bonk/releases/download/v0.0.8/bonk-0.0.8-macos-x86_64.tar.gz"
+      sha256 "3ce340525364c23b9cfd5556eed60f62279a28ec481b95c797e4411619b41305"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/FantasmaGlad/Bonk/releases/download/v0.0.7/bonk-0.0.7-linux-aarch64.tar.gz"
-      sha256 "8441340cea92518c85179e870c8da3da35f78be209322c229bcd781c755a6ddc"
+      url "https://github.com/FantasmaGlad/Bonk/releases/download/v0.0.8/bonk-0.0.8-linux-aarch64.tar.gz"
+      sha256 "e956b996f189fa583bb37790016de9ed48e627ac2dd0c50935ce43367f163875"
     end
     on_intel do
-      url "https://github.com/FantasmaGlad/Bonk/releases/download/v0.0.7/bonk-0.0.7-linux-x86_64.tar.gz"
-      sha256 "f9cb1ba34f9b5706f8e68541354c15baef3706bd5c41df0ba394d06786051d20"
+      url "https://github.com/FantasmaGlad/Bonk/releases/download/v0.0.8/bonk-0.0.8-linux-x86_64.tar.gz"
+      sha256 "b96f7c2c52a9daccf75cbcce9818d1f833c4f57aa2715ffc2312ca9614a12b91"
     end
   end
 
