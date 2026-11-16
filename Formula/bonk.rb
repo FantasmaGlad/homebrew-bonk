@@ -1,6 +1,6 @@
 class Bonk < Formula
-  desc "Bootable media writer for USB drives and external disks, with a graphical and a command-line interface."
-  homepage "https://github.com/FantasmaGlad/Bonk"
+  desc "Bootable media writer for USB drives and external disks"
+  homepage "https://bonk-os.app"
   version "0.0.7"
   license "MIT"
 
