@@ -13,14 +13,12 @@ for ligne in chemin.read_text(encoding="utf-8").splitlines():
         empreintes[m.group(2)] = m.group(1)
 
 
-def bloc(*noms: str) -> str:
-    # Up to 0.0.3 the windowless Linux archive was named bonk-<version>-linux-<arch>-musl.
-    nom = next(n for n in noms if n in empreintes)
+def bloc(nom: str) -> str:
     return f'      url "{BASE}/{nom}"\n      sha256 "{empreintes[nom]}"\n'
 
 
 def linux(arch: str) -> str:
-    return bloc(f"bonk-cli-{version}-linux-{arch}.tar.gz", f"bonk-{version}-linux-{arch}-musl.tar.gz")
+    return bloc(f"bonk-cli-{version}-linux-{arch}.tar.gz")
 
 
 print(f'''class BonkCli < Formula
