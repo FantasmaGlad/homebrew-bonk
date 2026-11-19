@@ -11,7 +11,7 @@
 <p align="center">
   <a href="https://github.com/FantasmaGlad/Bonk"><b>Bonk</b></a> &nbsp;·&nbsp;
   <a href="https://bonk-os.app/install/"><b>Install</b></a> &nbsp;·&nbsp;
-  <a href="https://bonk-os.app/reference/"><b>Commands</b></a>
+  <a href="https://bonk-os.app/commands/"><b>Commands</b></a>
 </p>
 
 <p align="center">
