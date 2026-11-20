@@ -1,7 +1,7 @@
 class BonkCli < Formula
   desc "Bonk without a window: bootable media writer, command line only"
   homepage "https://bonk-os.app"
-  version "0.1.1"
+  version "0.1.2"
   license "MIT"
 
   conflicts_with "bonk", because: "both install the bonk command"
@@ -9,23 +9,23 @@ class BonkCli < Formula
   on_macos do
     depends_on macos: :monterey
     on_arm do
-      url "https://github.com/FantasmaGlad/Bonk/releases/download/v0.1.1/bonk-cli-0.1.1-macos-aarch64.tar.gz"
-      sha256 "6681caf12bcddcd221d559b334bc0e37359ad2d3fc9153e84ca62fde28e3c728"
+      url "https://github.com/FantasmaGlad/Bonk/releases/download/v0.1.2/bonk-cli-0.1.2-macos-aarch64.tar.gz"
+      sha256 "2b44426e3b559aecddda9420af73ef04de3c8a7b5e61cb5a41300d9d31b439fc"
     end
     on_intel do
-      url "https://github.com/FantasmaGlad/Bonk/releases/download/v0.1.1/bonk-cli-0.1.1-macos-x86_64.tar.gz"
-      sha256 "c35842b0352bf59180e964f27b6d735f65d964efa155bc8d344616b23e42241e"
+      url "https://github.com/FantasmaGlad/Bonk/releases/download/v0.1.2/bonk-cli-0.1.2-macos-x86_64.tar.gz"
+      sha256 "b1882698f0b0d0e1fc053c30e9bffc61eccf053b9a02103b9476ebc12cb748fc"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/FantasmaGlad/Bonk/releases/download/v0.1.1/bonk-cli-0.1.1-linux-aarch64.tar.gz"
-      sha256 "5a7541e1c924a35a8cbec76836ec098cd63d03fdf9ab71ee847991052bf915a4"
+      url "https://github.com/FantasmaGlad/Bonk/releases/download/v0.1.2/bonk-cli-0.1.2-linux-aarch64.tar.gz"
+      sha256 "14db3aff18507e802ab26ba967179e3dd3f8f55babdcbf20fc93a050bc4c7864"
     end
     on_intel do
-      url "https://github.com/FantasmaGlad/Bonk/releases/download/v0.1.1/bonk-cli-0.1.1-linux-x86_64.tar.gz"
-      sha256 "8930a1bf9b5ccafd2ea4ac598576b9b4235d3a4fc303122f2dc20780b6bd6f24"
+      url "https://github.com/FantasmaGlad/Bonk/releases/download/v0.1.2/bonk-cli-0.1.2-linux-x86_64.tar.gz"
+      sha256 "05edab04ce8d220988f66cf3ace3b1a57c7d7016229bd7660108f549b7f429da"
     end
   end
 
