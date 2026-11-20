@@ -5,31 +5,31 @@
 <h1 align="center">homebrew-bonk</h1>
 
 <p align="center">
-  <b>Homebrew tap for Bonk.</b>
+  Homebrew tap for Bonk.
 </p>
 
 <p align="center">
-  <a href="https://github.com/FantasmaGlad/Bonk"><b>Bonk</b></a> &nbsp;·&nbsp;
-  <a href="https://bonk-os.app/install/"><b>Install</b></a> &nbsp;·&nbsp;
-  <a href="https://bonk-os.app/commands/"><b>Commands</b></a>
+  <a href="https://github.com/FantasmaGlad/Bonk">Bonk</a>,
+  <a href="https://bonk-os.app/install/">Install</a>,
+  <a href="https://bonk-os.app/commands/">Commands</a>
 </p>
 
 <p align="center">
   <a href="https://github.com/FantasmaGlad/homebrew-bonk/actions/workflows/mise-a-jour.yml"><img src="https://github.com/FantasmaGlad/homebrew-bonk/actions/workflows/mise-a-jour.yml/badge.svg?branch=main" alt="Formulas"></a>
 </p>
 
----
-
 ## Install
 
 | Formula | Command | Requirements |
 | :--- | :--- | :--- |
-| <img src="docs/icons/bonk.png" width="20" height="20" valign="middle" alt=""> **bonk** | `brew install fantasmaglad/bonk/bonk` | macOS 12+, Linux |
-| <img src="docs/icons/bonk.png" width="20" height="20" valign="middle" alt=""> **bonk-cli** | `brew install fantasmaglad/bonk/bonk-cli` | macOS 12+, Linux |
+| **bonk** | `brew install fantasmaglad/bonk/bonk` | macOS 12 or later, Linux |
+| **bonk-cli** | `brew install fantasmaglad/bonk/bonk-cli` | macOS 12 or later, Linux |
 
-`bonk-cli` is the version without a window. Each formula follows the latest Bonk release.
+`bonk-cli` is Bonk without its window. Both formulas follow the latest release, on x86_64 and ARM64.
 
-Both formulas install the `bonk` command and cannot be installed together:
+## Switching formulas
+
+Both install the `bonk` command, so only one can be installed at a time:
 
 ```bash
 brew uninstall bonk
@@ -38,8 +38,16 @@ brew install fantasmaglad/bonk/bonk-cli
 
 To go back, uninstall `bonk-cli`, then install `bonk`.
 
----
+## License
 
-License: view-only, all rights reserved ([LICENSE](LICENSE)) · Security: [SECURITY.md](SECURITY.md) · Contributing: [CONTRIBUTING.md](CONTRIBUTING.md)
+View-only, all rights reserved: [LICENSE](LICENSE).
 
-<sub>Related repositories: [Bonk](https://github.com/FantasmaGlad/Bonk) (application) · [BonkWeb](https://github.com/FantasmaGlad/BonkWeb) (website) · [bonk-packages](https://github.com/FantasmaGlad/bonk-packages) (package repositories) · [bonk-catalog](https://github.com/FantasmaGlad/bonk-catalog) (image catalog) · [bonk-security](https://github.com/FantasmaGlad/bonk-security) (security site) · Security policy: [security.bonk-os.app](https://security.bonk-os.app), [`/.well-known/security.txt`](https://bonk-os.app/.well-known/security.txt)</sub>
+Report a vulnerability as described in [SECURITY.md](SECURITY.md). Contributions: [CONTRIBUTING.md](CONTRIBUTING.md).
+
+## Related repositories
+
+- [Bonk](https://github.com/FantasmaGlad/Bonk): application
+- [BonkWeb](https://github.com/FantasmaGlad/BonkWeb): website
+- [bonk-catalog](https://github.com/FantasmaGlad/bonk-catalog): image catalog
+- [bonk-packages](https://github.com/FantasmaGlad/bonk-packages): package repositories
+- [bonk-security](https://github.com/FantasmaGlad/bonk-security): security site
