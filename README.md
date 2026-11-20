@@ -22,8 +22,8 @@
 
 | Formula | Command | Requirements |
 | :--- | :--- | :--- |
-| **bonk** | `brew install fantasmaglad/bonk/bonk` | macOS 12 or later, Linux |
-| **bonk-cli** | `brew install fantasmaglad/bonk/bonk-cli` | macOS 12 or later, Linux |
+| <img src="docs/icons/bonk.png" width="20" height="20" valign="middle" alt="Bonk">&nbsp;**bonk** | `brew install fantasmaglad/bonk/bonk` | macOS 12 or later, Linux |
+| <img src="docs/icons/bonk.png" width="20" height="20" valign="middle" alt="Bonk">&nbsp;**bonk-cli** | `brew install fantasmaglad/bonk/bonk-cli` | macOS 12 or later, Linux |
 
 `bonk-cli` is Bonk without its window. Both formulas follow the latest release, on x86_64 and ARM64.
 
@@ -46,8 +46,10 @@ Report a vulnerability as described in [SECURITY.md](SECURITY.md). Contributions
 
 ## Related repositories
 
-- [Bonk](https://github.com/FantasmaGlad/Bonk): application
-- [BonkWeb](https://github.com/FantasmaGlad/BonkWeb): website
-- [bonk-catalog](https://github.com/FantasmaGlad/bonk-catalog): image catalog
-- [bonk-packages](https://github.com/FantasmaGlad/bonk-packages): package repositories
-- [bonk-security](https://github.com/FantasmaGlad/bonk-security): security site
+| Repository | Content |
+| :--- | :--- |
+| <img src="docs/icons/bonk.png" width="20" height="20" valign="middle" alt="Bonk">&nbsp;**[Bonk](https://github.com/FantasmaGlad/Bonk)** | application |
+| <img src="docs/icons/bonk.png" width="20" height="20" valign="middle" alt="BonkWeb">&nbsp;**[BonkWeb](https://github.com/FantasmaGlad/BonkWeb)** | website |
+| <img src="docs/icons/bonk.png" width="20" height="20" valign="middle" alt="bonk-catalog">&nbsp;**[bonk-catalog](https://github.com/FantasmaGlad/bonk-catalog)** | image catalog |
+| <img src="docs/icons/linux.svg" width="20" height="20" valign="middle" alt="bonk-packages">&nbsp;**[bonk-packages](https://github.com/FantasmaGlad/bonk-packages)** | package repositories |
+| <img src="docs/icons/bonk.png" width="20" height="20" valign="middle" alt="bonk-security">&nbsp;**[bonk-security](https://github.com/FantasmaGlad/bonk-security)** | security site |
