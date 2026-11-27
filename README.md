@@ -15,6 +15,10 @@
 </p>
 
 <p align="center">
+  <img src="docs/icons/gitlab.svg" width="16" height="16" valign="middle" alt="GitLab">&nbsp;Backup copy: <a href="https://gitlab.com/FantasmaGlad/homebrew-bonk">gitlab.com/FantasmaGlad/homebrew-bonk</a>
+</p>
+
+<p align="center">
   <a href="https://github.com/FantasmaGlad/homebrew-bonk/actions/workflows/mise-a-jour.yml"><img src="https://github.com/FantasmaGlad/homebrew-bonk/actions/workflows/mise-a-jour.yml/badge.svg?branch=main" alt="Formulas"></a>
 </p>
 
