@@ -1,7 +1,7 @@
 class Bonk < Formula
   desc "Bootable media writer for USB drives and external disks"
   homepage "https://bonk-os.app"
-  version "0.1.5"
+  version "0.1.6"
   license "MIT"
 
   conflicts_with "bonk-cli", because: "both install the bonk command"
@@ -9,23 +9,23 @@ class Bonk < Formula
   on_macos do
     depends_on macos: :monterey
     on_arm do
-      url "https://github.com/FantasmaGlad/Bonk/releases/download/v0.1.5/bonk-0.1.5-macos-aarch64.tar.gz"
-      sha256 "a640289a93bbe539b45919ab9ce7c11e94e10a4564cb9b9454980a3004a817c7"
+      url "https://github.com/FantasmaGlad/Bonk/releases/download/v0.1.6/bonk-0.1.6-macos-aarch64.tar.gz"
+      sha256 "8f05bf60d9449360ff68c7392bf80f5ff9084495cae639fab0e043b1508b4b36"
     end
     on_intel do
-      url "https://github.com/FantasmaGlad/Bonk/releases/download/v0.1.5/bonk-0.1.5-macos-x86_64.tar.gz"
-      sha256 "1b39699803ffc54d5d2fa41bf3bb715b4c9d0a7b84346140e62ecd77a1976034"
+      url "https://github.com/FantasmaGlad/Bonk/releases/download/v0.1.6/bonk-0.1.6-macos-x86_64.tar.gz"
+      sha256 "4fb988d15434081eee51f56431f43eb42ca6bbda5d5939782ce2c0138390276d"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/FantasmaGlad/Bonk/releases/download/v0.1.5/bonk-0.1.5-linux-aarch64.tar.gz"
-      sha256 "4558b37b0003541d2dcb7f58942c220ab7fd74c0c09e46f72a8e5b6bf7cc1f8a"
+      url "https://github.com/FantasmaGlad/Bonk/releases/download/v0.1.6/bonk-0.1.6-linux-aarch64.tar.gz"
+      sha256 "4660a462fb8bd941de035f684c317a6cbd67d1b57fc3a24285c44051eac15e53"
     end
     on_intel do
-      url "https://github.com/FantasmaGlad/Bonk/releases/download/v0.1.5/bonk-0.1.5-linux-x86_64.tar.gz"
-      sha256 "d1a24a3625e89522d10e8bce3b947ef93e337fa41bed8f405e3513ccd9fcfde8"
+      url "https://github.com/FantasmaGlad/Bonk/releases/download/v0.1.6/bonk-0.1.6-linux-x86_64.tar.gz"
+      sha256 "dc10efb0be56dcfd4496adc0f6791754dd7ebd0bbe5852a191816a05acb94387"
     end
   end
 
